@@ -8,13 +8,7 @@ You'll need [Leiningen](http://leiningen.org/).
 
 To get started working with Dash, you should be working in the `tests` build.
 
-First, fire up the [Ring](https://github.com/weavejester/lein-ring) testing backend:
-
-```bash
-lein ring server-headless
-```
-
-Then start up the local dev server using figwheel:
+Start up the local dev server using figwheel:
 
 ```bash
 lein figwheel test

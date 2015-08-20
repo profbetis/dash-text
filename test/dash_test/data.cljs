@@ -1,11 +1,6 @@
-(ns server.handler
-  (:require [compojure.core :refer :all]
-            [compojure.route :as route]
-            [cheshire.core :refer :all]
-            [cognitect.transit :as transit])
-  (:import [java.io ByteArrayOutputStream]))
+(ns dash-test.data)
 
-(def updated-data
+(def basic-state
    {:lists {:Soon {:name "Soon"
                    :id :Soon
                    :tasks {:Get_this_working
@@ -41,36 +36,3 @@
             }
     :user "Mind Forker"
     })
-
-(def test-data
-  {:lists
-      [{:list-name "Soon"
-        :tasks [{:title "Get this working" :completed true :date "2015 / 01 / 12" :timedue "6pm"}
-                {:title "Eat dinner" :completed false :date "Everyday" :timedue "8pm"}
-                {:title "Bros Grumpout" :completed true :date "Everyday" :timedue "All the time"}]}
-
-       {:list-name "Later"
-        :tasks [{:title "Wake up" :completed false :date "Everyday" :timedue "8am-ISH"}
-                {:title "Eat breakfast" :completed false :date "2015 / 01 / 12" :timedue "6pm"}
-                {:title "Render some cool stuff" :completed false :date "Any day" :timedue "Any time"}
-                {:title "Play some games" :completed false :date "Any day" :timedue "After work"}]}
-
-       {:list-name "Future"
-        :tasks [{:title "Be successful as fuck" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Mindfork" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Phoenix Engine" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Complete Dwarf Game" :completed false :date "Someday" :timedue "n/a"}
-                {:title "Die happy" :completed false :date "On your last day" :timedue "At the end of your time"}]}]
-    :user
-      "Mind Forker"})
-
-(defroutes test-app
-  (GET "/test/test-data" []
-       (let [out (ByteArrayOutputStream. 4096)
-             writer (transit/writer out :json)]
-         (do
-           (transit/write writer updated-data)
-           (.toString out)))))
-;(transit/write writer {:a [1 2]})
-                             ;generate-string updated-data)))
-;(route/not-found "<h1>Page not found</h1>")

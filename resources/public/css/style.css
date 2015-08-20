@@ -1,63 +1,63 @@
 html{
-    width: 100%;
-    background: #222;
-    color: #ccc;
+  width: 100%;
+  background: #222;
+  color: #ccc;
 
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.2em;
-    letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.2em;
+  letter-spacing: 1px;
 
-    text-align: center;
+  text-align: center;
 }
 
 body{
-    font-size: 14px;
-    font-weight: 300;
-    color: #aaa;
-    margin: 32px;
-    text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  color: #aaa;
+  margin: 32px;
+  text-align: left;
 }
 
 h1 {
-    font-size: 36px;
-    font-weight: 100;
-    color: #0fc;
-    text-align: center;
-    letter-spacing: 3px;
+  font-size: 36px;
+  font-weight: 100;
+  color: #0fc;
+  text-align: center;
+  letter-spacing: 4px;
 }
 
 h2 {
-    font-size: 14px;
-    font-weight: 300;
-    color: #0fc;
-    text-align: left;
-    margin: -4px 0px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #0fc;
+  text-align: left;
+  margin: -4px 0px;
 }
 
 h3 {
-    font-size: 20px;
-    font-weight: 300;
-    color: #0fc;
-    letter-spacing: 2px;
-    margin: 2px 0px;
-    padding: 2px 0px;
-    text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: #0fc;
+  letter-spacing: 2px;
+  margin: 2px 0px;
+  padding: 2px 0px;
+  text-align: center;
 }
 
 h4 {
-    font-size: 11px;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 3px;
-    color: #666;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #666;
 
-    margin-top: -16px;
+  margin-top: -12px;
 }
 
 a {
-    color: #f0c;
+  color: #f0c;
 }
 
 div{
@@ -67,31 +67,31 @@ div{
 }
 
 ::selection {
-    color: #0fc;
-    background: #999;
+  color: #0fc;
+  background: #999;
 }
 
 input, button {
-    color: #ccc;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 300;
+  color: #ccc;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 300;
 
-    background: #111;
-    border: solid 1px #666;
-    outline: none;
-    padding: 8px;
-    margin: 16px;
-    text-align: left;
+  background: #111;
+  border: solid 1px #666;
+  outline: none;
+  padding: 8px;
+  margin: 16px;
+  text-align: left;
 
-    transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 input::-webkit-input-placeholder {
-    font-size: 18px;
-    color: #666;
-    font-style: italic;
+  font-size: 18px;
+  color: #666;
+  font-style: italic;
 }
 
 ul{
@@ -101,33 +101,33 @@ ul{
 }
 
 ul li input{
-    width: 1800px;
-    list-style: none;
+  width: 1800px;
+  list-style: none;
 }
 ul li button{
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 button{
-    color: #aaa;
-    background: #222;
-    margin: 2px 16px;
+  color: #aaa;
+  background: #222;
+  margin: 2px 16px;
 
-    transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 button:hover, input:focus{
-    /*color: #0fc;*/
-    border: solid 1px #0fc;
+  /*color: #0fc;*/
+  border: solid 1px #0fc;
 
-    transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 button:active {
-    color: #222;
-    background: #0fc;
+  color: #222;
+  background: #0fc;
 
-    transition-duration: 0.00s;
+  transition-duration: 0.00s;
 }
 
 
@@ -214,10 +214,10 @@ button:active {
 }
 
 #test-title{
-    color: #aaa;
-    font-size: 12px;
-    text-align: left;
-    margin: -8px 16px;
+  color: #aaa;
+  font-size: 12px;
+  text-align: left;
+  margin: -8px 16px;
 }
 
 /* Namespace Container */
@@ -294,16 +294,17 @@ button:active {
 /* Failing Tests */
 
 #tests .failed{
-    color: #f07;
-    outline: double 4px #f07;
-    background: #2f2227;
+  color: #f07;
+  outline: double 4px #f07;
+  background: #2f2227;
 }
 #tests .failed .test-name{
-    font-weight: 500;
-    background: rgba(255, 0, 119, 0.1);
+  font-weight: 500;
+  color: #f07;
+  background: rgba(255, 0, 119, 0.1);
 }
 #tests .failed .test-desc{
-    color: #f07;
+  color: #f07;
 }
 
 /*************************/
@@ -313,17 +314,35 @@ button:active {
 
 
 #titlebar {
-    margin: 0px 0px 32px 0px;
-    padding: 4px;
-    background: #1c1c1c;
-    outline: solid 1px #444;
-    height: 92px;
+  margin: 0px 0px 32px 0px;
+  padding: 2px 0px 2px 0px;
+  background: #1c1c1c;
+  outline: solid 1px #444;
+  height: 92px;
 }
 
 #dash{
-    margin: 0px;
-    padding: 0px;
-    background: none;
+  margin: 20px 0px 20px 0px;
+  padding: 0px;
+  background: none;
+}
+
+#powered-by{
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+#version {
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #444;
+
+  margin-top: -20px;
 }
 
 #foot{

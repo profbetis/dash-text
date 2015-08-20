@@ -1,5 +1,6 @@
 (ns dash-test.tests
   (:require [dash.core :as dash-core]
+            [dash-test.data :as data]
             [dash.util :as dash-util]))
 
 (defn tests []
@@ -25,8 +26,8 @@
 
      {:nsp "dash.core"
       :tests [{:should "retrieve a test map"
-               :test-fn #(-> (dash-core/fetch-updates %) :lists :Soon :tasks :Get_this_working :title)
-               :args {}
+               :test-fn (fn [v] (dash-core/fetch-updates (first v) (second v)) @(second v));uri state) state);#(-> (dash-core/fetch-updates %) :lists :Soon :tasks :Get_this_working :title)
+               :args ["http://localhost:3449/test/test-data" (atom {})]
                :should-be "Get this working"
                :raw-fn '(dash.core/fetch-updates)}
              ]}
