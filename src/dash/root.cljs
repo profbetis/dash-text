@@ -6,14 +6,14 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom {:reload-count 0}))
+(defonce app-state (atom {:reload-count 0 :view [0 "A"]}))
 
 (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
 
 (om/root
- dash-views/lists-view
+ dash-views/views-view
  app-state
  {:target (. js/document (getElementById "dash"))})
 
 ;(swap! app-state #((dash-core/fetch-updates "http://localhost:3449/test/test-data" %)))
-(dash-core/fetch-updates "http://localhost:3449/test/test-data" app-state)
+;(dash-core/fetch-updates "http://localhost:3449/test/test-data" app-state)
