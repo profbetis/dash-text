@@ -1,3 +1,19 @@
+/* Color Palette
+
+  Greens:
+    Bright: #6ff
+    Normal: #0fc
+    Dark: #097;
+  Reds:
+    Bright: #f6a
+    Normal: #f07
+    Dark: #903
+*/
+
+*{
+  -webkit-transition: all 0.1s ease-in-out;
+}
+
 html{
   width: 100%;
   background: #222;
@@ -313,7 +329,7 @@ button:active {
   outline: double 4px #f07;
   background: #2f2227;
 }
-#tests .failed:hover{ outline-color: #f8c;}
+#tests .failed:hover{ outline-color: #f6a;}
 
 #tests .failed .test-name{
   font-weight: 500;
