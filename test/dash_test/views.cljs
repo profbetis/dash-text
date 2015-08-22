@@ -50,6 +50,6 @@
   (reify
     om/IRender (render [_]
       (apply dom/div #js {:className "ns-views"}
-        (dom/h3 #js {:id "test-title"} "Namespace Tests")
+        (dom/h3 #js {:id "test-title"} "Test Namespaces")
         (om/build-all tests-view (:all-tests all-tests))
 ))))
