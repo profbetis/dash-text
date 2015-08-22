@@ -1,6 +1,7 @@
 /* Color Palette
 
   Greens:
+
     Bright: #8ff
     Normal: #0fc
     Dark: #098;
@@ -252,6 +253,7 @@ button:active {
     outline: double 4px #f07;
     background: #2f2227;
 }
+
 #tests .failed .test-name{
     font-weight: 500;
     color: #f07;
