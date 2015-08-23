@@ -97,9 +97,12 @@
   color: #0fc;
   outline: solid 1px #097;
   background: #202927;
-  height: 32px;
+  max-height: 32px;
 }
-#tests .passed:hover{ outline-color: #0fc;}
+#tests .passed:hover{
+ outline-color: #0fc;
+ max-height: 400px;
+}
 
 #tests .passed .test-name{
   background: rgba(0, 255, 204, 0.1);
@@ -108,11 +111,6 @@
 #tests .passed .test-desc{
   background: rgba(0, 255, 204, 0.1);
 }
-
-.passed .test-row{
-  display: none;
-}
-
 
 /* Failing Tests */
 
@@ -135,8 +133,8 @@
 }
 
 /* Test Report Elements */
-.test-table{
-  width: calc(100% - 36px);
+.test-table, tbody{
+  min-width: calc(100%-0px);
   border-spacing: 1px;
   margin: -1px;
   margin-top: 3px;
@@ -154,12 +152,27 @@
   margin: 4px 0px;
   width: auto;
 }
+
 .test-row:hover{
   background: rgba(255, 255, 255, 0.12);
 }
 
 .test-row-title{ width: 72px;}
 .test-row-data{ width: auto;}
+
+.passed tbody{
+  display: block;
+  opacity: 0;
+  max-height: 0px;
+  /*transform-origin:center top;
+  -webkit-transform: scale(1,0.01);*/
+}
+.passed:hover tbody{
+  display: inherit;
+  opacity: 1;
+  max-height: 400px;
+/* -webkit-transform: scale(1,1);*/
+}
 
 
 
