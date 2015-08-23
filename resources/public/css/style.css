@@ -11,7 +11,7 @@
 */
 
 *{
-  -webkit-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.15s ease-out;
 }
 
 html{
@@ -41,7 +41,7 @@ h1 {
   font-weight: 100;
   color: #0fc;
   text-align: center;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -49,7 +49,7 @@ h2 {
   font-weight: 300;
   color: #0fc;
   text-align: left;
-  margin: -4px 0px;
+  margin: -0px 0px;
 }
 
 h3 {
@@ -68,8 +68,7 @@ h4 {
   text-align: center;
   letter-spacing: 2px;
   color: #666;
-
-  margin-top: -12px;
+  line-height: 1em;
 }
 
 a {
@@ -209,174 +208,6 @@ button:active {
 /*************************/
 
 
-
-/*************************/
-/* Test Specific Styling */
-/*************************/
-
-
-/* Top Level Testing Container */
-#tests{
-  padding: 0px;
-  margin: 0px;
-  background: #222;
-  outline: solid 0px #444;
-}
-
-.ns-views{
-  background: #1c1c1c;
-  padding: 16px;
-  margin: 0px;
-  -webkit-column-count: auto;
-  -webkit-column-width: 512px;
-  -webkit-column-gap: 0px;
-}
-
-#test-title{
-  color: #aaa;
-  background: #222;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-align: left;
-  margin: 0px 16px;
-  padding: 0px 16px;
-  -webkit-column-span: all;
-}
-
-/* Namespace Container */
-.ns-view{
-  background: #222;
-  padding: 16px;
-  margin: 16px;
-  display: inline-block;
-  width: calc(100% - 64px);
-}
-.ns-title{
-  color: #aaa;
-  font-size: 12px;
-  margin: 0px;
-  margin-bottom: 2px;
-  padding: 0px 16px;
-  background: #2c2c2c;
-}
-
-/* Tests */
-.test-name{
-  text-align: left;
-  font-size: 14px;
-  font-weight: 500;
-  color: #0fc;
-  width: calc(100% - 48px);
-  margin: 0px 0px;
-  padding: 2px 0px;
-  line-height: 12px;
-}
-
-.test-desc{
-  text-align: left;
-  font-size: 11px;
-  font-weight: 300;
-  color: #0fc;
-  width: calc(100% - 48px);
-  margin: 1px 0px;
-  padding: 2px 0px;
-  line-height: 12px;
-}
-
-.status-image{
-  float: right;
-  margin-top: -34px;
-  margin-right: 0px;
-}
-
-.passed, .failed{
-  padding: 4px 16px;
-  margin: 4px 0px;
-  display: inline-block;
-  /*height: 180px;*/
-  width: calc(100% - 32px);
-}
-
-
-
-/* Passing Tests */
-
-#tests .passed{
-  color: #0fc;
-  outline: solid 1px #097;
-  background: #202927;
-  height: 32px;
-}
-#tests .passed:hover{ outline-color: #0fc;}
-
-#tests .passed .test-name{
-  background: rgba(0, 255, 204, 0.1);
-}
-
-#tests .passed .test-desc{
-  background: rgba(0, 255, 204, 0.1);
-}
-
-.passed .test-row{
-  display: none;
-}
-
-
-/* Failing Tests */
-
-#tests .failed{
-  color: #f07;
-  outline: double 4px #f07;
-  background: #2f2227;
-}
-#tests .failed:hover{ outline-color: #f6a;}
-
-#tests .failed .test-name{
-  font-weight: 500;
-  color: #f07;
-  background: rgba(255, 0, 119, 0.1);
-}
-
-#tests .failed .test-desc{
-  color: #f07;
-  background: rgba(255, 0, 119, 0.1);
-}
-
-/* Test Report Elements */
-.test-table{
-  width: 100%;
-  border-spacing: 1px;
-  margin: -1px;
-  margin-top: 3px;
-}
-
-.test-row,
-.test-row-title,
-.test-row-data{
-  font-size: 11px;
-  font-family: "Droid Mono", "Courier New", Courier, monospace;
-  letter-spacing: 0px;
-  color: #ccc;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 2px 4px;
-  margin: 4px 0px;
-  width: auto;
-}
-.test-row:hover{
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.test-row-title{ width: 72px;}
-.test-row-data{ width: auto;}
-
-
-
-/*************************/
-/* Test Styling End      */
-/*************************/
-
-
-
 #titlebar {
   margin: 0px 0px 32px 0px;
   padding: 2px 0px 2px 0px;
@@ -406,7 +237,7 @@ button:active {
   letter-spacing: 1px;
   color: #444;
 
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 #foot{
