@@ -3,6 +3,17 @@
             [om.dom :as dom :include-macros true]
             [dash.util :as dash-util]))
 
+(defn elements-view [app owner]
+  (reify om/IRender (render [_] 
+    (dom/div #js {:id "elements-view"}
+      (dom/h1 #js {:id "elements-title"} "Elements View")
+      (apply dom/div #js {:className "element-view"} 
+        (om/build-all element-view ( )))))))
+
+(defn element-view []
+  (reify om/IRender (render [_]
+    (dom/div #js {:id "element-container"}))))
+
 (defn list-view [this-list owner]
   (reify
     om/IRender (render [_]
