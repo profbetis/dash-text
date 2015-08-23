@@ -11,7 +11,8 @@
 */
 
 *{
-  -webkit-transition: all 0.2s ease;
+  -webkit-transition: all 0.1s ease-out;
+  outline-offset: -1px;
 }
 
 html{
@@ -30,7 +31,7 @@ body{
   font-size: 14px;
   font-weight: 300;
   color: #aaa;
-  margin: 32px;
+  margin: 0px;
   text-align: left;
 }
 
@@ -205,28 +206,98 @@ button:active {
 /* Task List Styling End */
 /*************************/
 
+.test-result,
+.test-should-be{
+  font-size: 14px;
+  color: #ccc;
+}
+
+.ns-views{
+  background: #1c1c1c;
+}
+.ns-view{
+  background: #222;
+}
+
+
+/* Passing Tests */
+
+#tests .passed{
+  color: #0fc;
+  outline: solid 1px #097;
+  background: #202927;
+}
+#tests .passed .test-name{
+}
+#tests .passed .test-desc{
+}
+
+
+/* Failing Tests */
+
+#tests .failed{
+    color: #f07;
+    outline: double 4px #f07;
+    background: #2f2227;
+}
+#tests .failed .test-name{
+    font-weight: 500;
+    color: #f07;
+    background: rgba(255, 0, 119, 0.1);
+}
+#tests .failed .test-desc{
+    color: #f07;
+}
+
+
+/* Misc Test Report Elements */
+
+#tests ul{
+  margin-left: 0px;
+}
+
+.test-fn,
+.test-result,
+.test-should-be,
+.test-args{
+  font-family: "Droid Mono", "Courier New", Courier, monospace;
+  color: #ccc;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  margin: 2px 0px;
+  line-height: 1em;
+}
+
+/*************************/
+/* Test Styling End      */
+/*************************/
+
+
 
 #titlebar {
-  margin: 0px 0px 32px 0px;
-  padding: 2px 0px 2px 0px;
+  margin: 32px;
+  margin-top: 0px;
+  padding: 4px;
   background: #1c1c1c;
   outline: solid 1px #444;
-  height: 92px;
+  max-height: 64px;
 }
 
 #dash{
-  margin-top: 12px;
-  margin-bottom: 0px;
-  height: 32px;
+  font-size: 28px;
+  margin: 0px 0px;
+  height: 30px;
+  margin: 1px 0px;
   background: none;
 }
 
 #powered-by{
-  font-size: 12px;
+  font-size: 11px;
+  height: 12px;
   font-weight: 500;
   text-align: center;
   letter-spacing: 1px;
-  margin: 6px 0px;
+  margin: 1px 0px;
   color: #666;
 }
 
@@ -236,8 +307,7 @@ button:active {
   text-align: center;
   letter-spacing: 1px;
   color: #444;
-
-  margin: 3px 0px;
+  margin: 1px 0px;
 }
 
 #foot{
