@@ -276,6 +276,7 @@ button:active {
 
 #titlebar {
   margin: 32px;
+  margin-top: 0px;
   padding: 4px;
   background: #1c1c1c;
   outline: solid 1px #444;
