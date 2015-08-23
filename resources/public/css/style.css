@@ -253,7 +253,6 @@ button:active {
     outline: double 4px #f07;
     background: #2f2227;
 }
-
 #tests .failed .test-name{
     font-weight: 500;
     color: #f07;
