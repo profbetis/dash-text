@@ -17,7 +17,7 @@
 
 html{
   width: 100%;
-  background: #222;
+  background-color: #222;
   color: #ccc;
 
   font-family: 'Roboto', sans-serif;
@@ -31,8 +31,10 @@ body{
   font-size: 14px;
   font-weight: 300;
   color: #aaa;
+  padding: 32px;
   margin: 0px;
   text-align: left;
+  background-position: center 1px;
 }
 
 h1 {
@@ -275,8 +277,7 @@ button:active {
 
 
 #titlebar {
-  margin: 32px;
-  margin-top: 0px;
+  margin: 0px;
   padding: 4px;
   background: #1c1c1c;
   outline: solid 1px #444;
