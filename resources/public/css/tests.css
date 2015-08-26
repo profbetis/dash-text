@@ -6,7 +6,8 @@
 /* Top Level Testing Container */
 #tests{
   padding: 0px;
-  margin: 32px;
+  margin: 0px;
+  margin-top: 32px;
   background: #222;
   outline: solid 0px #444;
 }
@@ -51,17 +52,18 @@
 
 /* Tests */
 
-.passed, .failed{
+#tests .passed, #tests .failed{
   padding: 4px 4px;
   margin: 4px 0px;
   display: inline-block;
   /*height: 180px;*/
   width: calc(100% - 8px);
+  overflow: hidden;
 }
-.passed:first-child, .failed:first-child{ margin-top: 0px; }
-.passed:last-child, .failed:last-child{ margin-bottom: 0px; }
+#tests .passed:first-child, .failed:first-child{ margin-top: 0px; }
+#tests .passed:last-child, .failed:last-child{ margin-bottom: 0px; }
 
-.test-name{
+#tests .test-name{
   text-align: left;
   font-size: 14px;
   font-weight: 500;
@@ -72,7 +74,7 @@
   line-height: 12px;
 }
 
-.test-desc{
+#tests .test-desc{
   text-align: left;
   font-size: 11px;
   font-weight: 300;
@@ -83,10 +85,10 @@
   line-height: 12px;
 }
 
-.status-image{
+#tests .status-image{
   float: right;
   margin-top: -34px;
-  margin-right: 0px;
+  margin-right: 1px;
 }
 
 
@@ -98,10 +100,12 @@
   outline: solid 1px #097;
   background: #202927;
   max-height: 32px;
+  -webkit-transition: max-height 0.3s ease;
 }
 #tests .passed:hover{
  outline-color: #0fc;
- max-height: 400px;
+ max-height: 128px;
+ -webkit-transition: max-height 0.3s ease;
 }
 
 #tests .passed .test-name{
@@ -134,23 +138,22 @@
 
 /* Test Report Elements */
 .test-table, tbody{
-  min-width: calc(100%-0px);
+  width: 100%;
   border-spacing: 1px;
   margin: -1px;
   margin-top: 3px;
+  font-size: 11px;
+  font-family: "Droid Mono", "Courier New", Courier, monospace;
+  letter-spacing: 0px;
 }
 
 .test-row,
 .test-row-title,
 .test-row-data{
-  font-size: 11px;
-  font-family: "Droid Mono", "Courier New", Courier, monospace;
-  letter-spacing: 0px;
   color: #ccc;
   background: rgba(255, 255, 255, 0.06);
   padding: 2px 12px;
   margin: 4px 0px;
-  width: auto;
 }
 
 .test-row:hover{
@@ -158,20 +161,17 @@
 }
 
 .test-row-title{ width: 72px;}
-.test-row-data{ width: auto;}
+.test-row-data{ width: 100%;}
 
-.passed tbody{
-  display: block;
-  opacity: 0;
-  max-height: 0px;
-  /*transform-origin:center top;
-  -webkit-transform: scale(1,0.01);*/
+.passed tbody,
+.passed .test-table{
+  height: 0px;
+  -webkit-transition: height 0.1s ease-out;
 }
-.passed:hover tbody{
-  display: inherit;
-  opacity: 1;
-  max-height: 400px;
-/* -webkit-transform: scale(1,1);*/
+.passed:hover tbody,
+.passed:hover .test-table{
+  height: auto;
+  -webkit-transition: height 0.1s ease-out;
 }
 
 

@@ -17,7 +17,7 @@
 
 html{
   width: 100%;
-  background: #222;
+  background-color: #222;
   color: #ccc;
 
   font-family: 'Roboto', sans-serif;
@@ -31,8 +31,10 @@ body{
   font-size: 14px;
   font-weight: 300;
   color: #aaa;
+  padding: 32px;
   margin: 0px;
   text-align: left;
+  background-position: center 1px;
 }
 
 h1 {
@@ -275,17 +277,16 @@ button:active {
 
 
 #titlebar {
-  margin: 32px;
-  margin-top: 0px;
-  padding: 4px;
+  margin: 0px;
+  margin-bottom: 32px;
+  padding: 4px 0px;  
   background: #1c1c1c;
   outline: solid 1px #444;
   max-height: 64px;
 }
 
-#dash{
+#dash-title{
   font-size: 28px;
-  margin: 0px 0px;
   height: 30px;
   margin: 1px 0px;
   background: none;
@@ -308,6 +309,13 @@ button:active {
   letter-spacing: 1px;
   color: #444;
   margin: 1px 0px;
+}
+
+#dash{
+  margin: 0px;
+  padding: 16px;
+  background: #1c1c1c;
+  height: calc(100% - 128px);
 }
 
 #foot{
