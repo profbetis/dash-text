@@ -278,15 +278,15 @@ button:active {
 
 #titlebar {
   margin: 0px;
-  padding: 4px;
+  margin-bottom: 32px;
+  padding: 4px 0px;  
   background: #1c1c1c;
   outline: solid 1px #444;
   max-height: 64px;
 }
 
-#dash{
+#dash-title{
   font-size: 28px;
-  margin: 0px 0px;
   height: 30px;
   margin: 1px 0px;
   background: none;
@@ -309,6 +309,13 @@ button:active {
   letter-spacing: 1px;
   color: #444;
   margin: 1px 0px;
+}
+
+#dash{
+  margin: 0px;
+  padding: 16px;
+  background: #1c1c1c;
+  height: calc(100% - 128px);
 }
 
 #foot{
