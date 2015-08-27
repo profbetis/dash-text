@@ -15,7 +15,7 @@
   :build-id "dash"})
 
 (om/root
- dash-views/lists-view
+ dash-views/elements-view
  app-state
  {:target (. js/document (getElementById "dash"))})
 
