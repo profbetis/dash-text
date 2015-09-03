@@ -70,7 +70,9 @@
              writer (transit/writer out :json)]
          (do
            (transit/write writer updated-data)
-           (.toString out)))))
+           (.toString out))))
+  (GET "/test-server/login" [req] (do (println (str req)) "OK")))
+  (GET "/test-server/ok" [req] (do (println (str req)) "OK")))
 ;(transit/write writer {:a [1 2]})
                              ;generate-string updated-data)))
 ;(route/not-found "<h1>Page not found</h1>")
