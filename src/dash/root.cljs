@@ -11,7 +11,7 @@
 (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
 
 (om/root
- dash-views/elements-view
+ dash-views/login-test-view
  app-state
  {:target (. js/document (getElementById "dash"))})
 
