@@ -6,7 +6,7 @@
 (defn login-view []
   (reify om/IRender (render [_]
     (dom/div #js {:id "login-container"}
-      (dom/h3 "Log-in to Dash")
+      (dom/h2 nil "Log-in to Dash")
       (dom/form {:class "login-form"}
         (dom/text #js {:class "login-label"} "Email")
         (dom/input #js {:type "text" :name "email"})
@@ -17,7 +17,7 @@
 (defn login-table-view []
   (reify om/IRender (render [_]
     (dom/div #js {:id "login-container"}
-      (dom/h3 "Log-in to Dash")
+      (dom/h3 nil "Log-in to Dash")
       (dom/form {:class "login-form"}
         (dom/table {:class "login-table"}
           (dom/tr #js {:class "login-labels"}
@@ -31,5 +31,5 @@
 (defn login-test-view []
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
-      (dom/h2 "Login Test View")
+      (dom/h3 nil "Login Test View")
       (om/build login-view ())))))
