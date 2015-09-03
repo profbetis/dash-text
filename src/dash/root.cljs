@@ -7,7 +7,8 @@
 
 (enable-console-print!)
 
-(def app-state (atom {:reload-count 0}))
+(def app-state (atom {:reload-count 0
+					  :}))
 
 (fw/start {
   :on-jsload (fn [] (do (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
@@ -15,7 +16,7 @@
   :build-id "dash"})
 
 (om/root
- dash-views/elements-view
+ dash-views/login-test-view
  app-state
  {:target (. js/document (getElementById "dash"))})
 
