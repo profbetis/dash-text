@@ -7,7 +7,7 @@
   (reify om/IRender (render [_]
     (dom/div #js {:id "login-container"}
       (dom/h2 nil "Log-in to Dash")
-      (dom/form {:class "login-form"}
+      (dom/form {:class "login-form" :action "http://localhost:3449/test-server/login" }
         (dom/text #js {:class "login-label"} "Email")
         (dom/input #js {:type "text" :name "email"})
         (dom/text #js {:class "login-label"} "Password")
