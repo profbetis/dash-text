@@ -6,6 +6,7 @@ resources/public/out/
 resources/public/test_out/
 resources/public/script/
 target/
+build/
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/

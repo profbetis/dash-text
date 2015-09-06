@@ -2,18 +2,11 @@
   (:require [om.core :as om :include-macros true]
             [dash-test.core :as dash-core]
             [dash-test.views :as dash-views]
-            [dash-test.util :as dash-util]
-            [figwheel.client :as fw]))
+            [dash-test.util :as dash-util]))
 
 (enable-console-print!)
 
-(def test-state (atom {}))
-
-(fw/start {
-  :on-jsload (fn [] (do (dash-core/refresh-tests! test-state)
-                        (println "refresh")))
-  :build-id "test"
-})
+(defonce test-state (atom {}))
 
 (dash-core/refresh-tests! test-state)
 
