@@ -1,9 +1,9 @@
 /* Color Palette
 
   Greens:
-    Bright: #6ff
+    Bright: #8ff
     Normal: #0fc
-    Dark: #097;
+    Dark: #098;
   Reds:
     Bright: #f6a
     Normal: #f07
@@ -22,7 +22,8 @@ html{
 
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 1px;
 
   text-align: center;
 }
@@ -38,28 +39,26 @@ body{
 }
 
 h1 {
-  font-size: 32px;
-  font-weight: 100;
+  font-size: 22px;
+  font-weight: 300;
   color: #0fc;
   text-align: center;
   letter-spacing: 2px;
-  line-height: 32px;
+  line-height: 24px;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
+  letter-spacing: 2px;
   color: #0fc;
   text-align: left;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 300;
-  color: #0fc;
-  letter-spacing: 2px;
-  margin: 2px 0px;
-  padding: 2px 0px;
+  color: #aaa;
   text-align: center;
 }
 
@@ -70,6 +69,10 @@ h4 {
   letter-spacing: 2px;
   color: #666;
   line-height: 1em;
+}
+
+p {
+  font-weight: 300;
 }
 
 a {
@@ -95,8 +98,8 @@ input, button {
   font-weight: 300;
 
   background: #111;
-  border: solid 1px #666;
-  outline: none;
+  border: none;
+  outline: solid 1px #666;
   padding: 8px;
   margin: 16px;
   text-align: left;
@@ -127,16 +130,23 @@ ul li button{
 button{
   color: #aaa;
   background: #222;
-  margin: 2px 16px;
+  margin: 4px 4px;
 
   transition-duration: 0.2s;
 }
 
 button:hover, input:focus{
-  /*color: #0fc;*/
-  border: solid 1px #0fc;
+  color: #0fc;
+  outline: solid 1px #098;
 
-  transition-duration: 0.2s;
+  transition-duration: 0.1s;
+}
+button:disabled{
+  color: #555;
+  outline: 1px solid #333;
+}
+button:disabled:hover{
+  outline: 1px solid #333;
 }
 
 button:active {
@@ -283,13 +293,21 @@ button:active {
   background: #1c1c1c;
   outline: solid 1px #444;
   max-height: 64px;
+  text-align: center;
 }
 
 #dash-title{
+  color: #0fc;
   font-size: 28px;
   height: 30px;
   margin: 1px 0px;
   background: none;
+  -webkit-transition: all 1.0s ease-in;
+}
+#dash-title:hover{
+  color: #8ff;
+  text-shadow: 0px 0px 8px #0fc;
+  -webkit-transition: all 0.5s ease-out;
 }
 
 #powered-by{
@@ -314,6 +332,7 @@ button:active {
 #dash{
   margin: 0px;
   padding: 16px;
+  font-weight: 100;
   background: #1c1c1c;
   height: calc(100% - 128px);
 }
