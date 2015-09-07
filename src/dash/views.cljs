@@ -7,7 +7,7 @@
 (defn change-view [cursor view-id]
   (om/transact! cursor [0] view-id))
 
-(defn view-switcher [ cursor ]
+(defn view-switcher [cursor owner]
   (reify om/IRender (render [_]
     (let [current-view cursor]
     (dom/button (if-not (= current-view 0)
@@ -24,29 +24,30 @@
                 "View C")
     ))))
 
-(defn view-a [cursor]
+(defn view-a [cursor owner]
   (reify om/IRender (render [_]
     (dom/h2 nil "This is View A")
-    (dom/h3 nil (str "(Also known in the atom as View " (get cursor :view)))
+    (dom/h3 nil (str "(Also known in the atom as View " (str (:view cursor)) ")"))
     (dom/p nil "AAAAAAAAAAAA")
-    (om/build view-switcher (get cursor :view)))))
+    (om/build view-switcher (get cursor :view))
+    )))
 
-(defn view-b [cursor]
+(defn view-b [cursor owner]
   (reify om/IRender (render [_]
     (dom/h2 nil "This is View B")
     (dom/h3 nil (str "(Also known in the atom as View " (get cursor :view)))
     (dom/p nil "BBBBBBBBBBBB")
     (om/build view-switcher (get cursor :view)))))
 
-(defn view-c [cursor]
+(defn view-c [cursor owner]
   (reify om/IRender (render [_]
     (dom/h2 nil "This is View C")
     (dom/h3 nil (str "(Also known in the atom as View " (get cursor :view)))
     (dom/p nil "CCCCCCCCCCCC")
     (om/build view-switcher (get cursor :view)))))
 
-(defn views-view [cursor owner] ;META
+(defn views-view [state owner] ;META
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
       (dom/h3 nil "Views View")
-      (om/build view-a (cursor))))))
+      (om/build view-a (state))))))
