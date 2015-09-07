@@ -18,6 +18,10 @@
   "Insert or update a task in the given atom."
   (upsert-item state task :lists))
 
+(defn upsert-view [state v]
+  "Change the view of the given atom"
+  (upsert-item state v :view))
+
 (defn ok-handler [state]
   (fn [result]
     (reset! state result)))

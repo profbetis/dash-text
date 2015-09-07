@@ -1,35 +1,46 @@
 (ns dash.views
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [dash.util :as dash-util]))
+            [dash.util :as util]
+            [dash.core :as core]))
 
-(defn login-view []
+(defn view-switcher [state]
   (reify om/IRender (render [_]
-    (dom/div #js {:id "login-container"}
-      (dom/h2 nil "Log-in to Dash")
-      (dom/form {:class "login-form" :action "http://localhost:3449/test-server/login" }
-        (dom/text #js {:class "login-label"} "Email")
-        (dom/input #js {:type "text" :name "email"})
-        (dom/text #js {:class "login-label"} "Password")
-        (dom/input #js {:type "password" :name "pass"})
-        (dom/input #js {:type "submit" :value "Log-in"}))))))
+    (let [current-view (:view state)]
+    (dom/button (if-not (= current-view 0)
+                #js {:className "view-switcher" :onClick (core/upsert-view state 0)}
+                #js {:className "view-switcher-disabled" :onClick nil})
+                "View A")
+    (dom/button (if-not (= current-view 1)
+                #js {:className "view-switcher" :onClick (core/upsert-view state 1)}
+                #js {:className "view-switcher-disabled" :onClick nil})
+                "View B")
+    (dom/button (if-not (= current-view 2)
+                #js {:className "view-switcher" :onClick (core/upsert-view state 2)}
+                #js {:className "view-switcher-disabled" :onClick nil})
+                "View C")
+    ))))
 
-(defn login-table-view []
+(defn view-a [state]
   (reify om/IRender (render [_]
-    (dom/div #js {:id "login-container"}
-      (dom/h3 nil "Log-in to Dash")
-      (dom/form {:class "login-form"}
-        (dom/table {:class "login-table"}
-          (dom/tr #js {:class "login-labels"}
-            (dom/td "Email")
-            (dom/td "Password"))
-          (dom/tr #js {:class "login-elements"}
-            (dom/td (dom/input #js {:type "text" :name "email"}))
-            (dom/td (dom/input #js {:type "password" :name "pass"}))
-            (dom/td (dom/input #js {:type "submit" :value "Log-in"})))))))))
+    (dom/h2 nil "This is View A")
+    (dom/p nil "AAAAAAAAAAAA")
+    (om/build view-switcher (state)))))
 
-(defn login-test-view []
+(defn view-b [state]
+  (reify om/IRender (render [_]
+    (dom/h2 nil "This is View B")
+    (dom/p nil "BBBBBBBBBBBB")
+    (om/build view-switcher (state)))))
+
+(defn view-c [state]
+  (reify om/IRender (render [_]
+    (dom/h2 nil "This is View C")
+    (dom/p nil "CCCCCCCCCCCC")
+    (om/build view-switcher (state)))))
+
+(defn views-view [state owner] ;META
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
-      (dom/h3 nil "Login Test View")
-      (om/build login-view ())))))
+      (dom/h3 nil "Views View")
+      (om/build view-a (state))))))
