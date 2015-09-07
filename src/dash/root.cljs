@@ -6,7 +6,7 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom {:reload-count 0 :view [0]}))
+(defonce app-state (atom {:reload-count 0 :view 0}))
 
 (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
 
