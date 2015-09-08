@@ -1,12 +1,28 @@
+/* Color Palette
+
+  Greens:
+    Bright: #8ff
+    Normal: #0fc
+    Dark: #098;
+  Reds:
+    Bright: #f6a
+    Normal: #f07
+    Dark: #903
+*/
+
+*{
+  -webkit-transition: all 0.1s ease-out;
+  outline-offset: -1px;
+}
+
 html{
   width: 100%;
-  background: #222;
+  background-color: #222;
   color: #ccc;
 
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 18px;
-  line-height: 1.2em;
+  font-size: 14px;
   letter-spacing: 1px;
 
   text-align: center;
@@ -16,33 +32,33 @@ body{
   font-size: 14px;
   font-weight: 300;
   color: #aaa;
-  margin: 32px;
+  padding: 32px;
+  margin: 0px;
   text-align: left;
+  background-position: center 1px;
 }
 
 h1 {
-  font-size: 36px;
-  font-weight: 100;
+  font-size: 22px;
+  font-weight: 300;
   color: #0fc;
   text-align: center;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  line-height: 24px;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
+  letter-spacing: 2px;
   color: #0fc;
   text-align: left;
-  margin: -4px 0px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 300;
-  color: #0fc;
-  letter-spacing: 2px;
-  margin: 2px 0px;
-  padding: 2px 0px;
+  color: #aaa;
   text-align: center;
 }
 
@@ -52,8 +68,11 @@ h4 {
   text-align: center;
   letter-spacing: 2px;
   color: #666;
+  line-height: 1em;
+}
 
-  margin-top: -12px;
+p {
+  font-weight: 300;
 }
 
 a {
@@ -79,8 +98,8 @@ input, button {
   font-weight: 300;
 
   background: #111;
-  border: solid 1px #666;
-  outline: none;
+  border: none;
+  outline: solid 1px #666;
   padding: 8px;
   margin: 16px;
   text-align: left;
@@ -111,16 +130,23 @@ ul li button{
 button{
   color: #aaa;
   background: #222;
-  margin: 2px 16px;
+  margin: 4px 4px;
 
   transition-duration: 0.2s;
 }
 
 button:hover, input:focus{
-  /*color: #0fc;*/
-  border: solid 1px #0fc;
+  color: #0fc;
+  outline: solid 1px #098;
 
-  transition-duration: 0.2s;
+  transition-duration: 0.1s;
+}
+button:disabled{
+  color: #555;
+  outline: 1px solid #333;
+}
+button:disabled:hover{
+  outline: 1px solid #333;
 }
 
 button:active {
@@ -192,95 +218,18 @@ button:active {
 /* Task List Styling End */
 /*************************/
 
-
-
-/*************************/
-/* Test Specific Styling */
-/*************************/
-
-
-/* Top Level Testing Container */
-#tests{
-  padding: 0px;
-  margin: 0px;
-  background: #222;
-  outline: solid 0px #444;
+.test-result,
+.test-should-be{
+  font-size: 14px;
+  color: #ccc;
 }
 
 .ns-views{
   background: #1c1c1c;
-  padding: 16px;
-  margin: 0px;
-  -webkit-column-count: auto;
-  -webkit-column-width: 512px;
-  -webkit-column-gap: 0px;
 }
-
-#test-title{
-  color: #aaa;
-  background: #222;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-align: left;
-  margin: 0px 16px;
-  padding: 0px 16px;
-  -webkit-column-span: all;
-}
-
-/* Namespace Container */
 .ns-view{
   background: #222;
-  padding: 16px;
-  margin: 16px;
-  display: inline-block;
-  width: calc(100% - 64px);
 }
-.ns-title{
-  color: #aaa;
-  font-size: 12px;
-  margin: 0px;
-  margin-bottom: 2px;
-  padding: 0px 16px;
-  background: #2c2c2c;
-}
-
-/* Tests */
-.test-name{
-  text-align: left;
-  font-size: 14px;
-  font-weight: 500;
-  color: #0fc;
-  width: calc(100% - 48px);
-  margin: 0px 0px;
-  padding: 2px 0px;
-  line-height: 12px;
-}
-
-.test-desc{
-  text-align: left;
-  font-size: 11px;
-  font-weight: 300;
-  color: #0fc;
-  width: calc(100% - 48px);
-  margin: 1px 0px;
-  padding: 2px 0px;
-  line-height: 12px;
-}
-
-.status-image{
-  float: right;
-  margin-top: -34px;
-  margin-right: 0px;
-}
-
-.passed, .failed{
-  padding: 4px 16px;
-  margin: 4px 0px;
-  display: inline-block;
-  /*height: 180px;*/
-  width: calc(100% - 32px);
-}
-
 
 
 /* Passing Tests */
@@ -289,71 +238,47 @@ button:active {
   color: #0fc;
   outline: solid 1px #097;
   background: #202927;
-  height: 32px;
 }
-#tests .passed:hover{ outline-color: #0fc;}
-
 #tests .passed .test-name{
-  background: rgba(0, 255, 204, 0.1);
 }
-
 #tests .passed .test-desc{
-  background: rgba(0, 255, 204, 0.1);
-}
-
-.passed .test-row{
-  display: none;
 }
 
 
 /* Failing Tests */
 
 #tests .failed{
-  color: #f07;
-  outline: double 4px #f07;
-  background: #2f2227;
+    color: #f07;
+    outline: double 4px #f07;
+    background: #2f2227;
 }
-#tests .failed:hover{ outline-color: #f8c;}
-
 #tests .failed .test-name{
-  font-weight: 500;
-  color: #f07;
-  background: rgba(255, 0, 119, 0.1);
+    font-weight: 500;
+    color: #f07;
+    background: rgba(255, 0, 119, 0.1);
 }
-
 #tests .failed .test-desc{
-  color: #f07;
-  background: rgba(255, 0, 119, 0.1);
+    color: #f07;
 }
 
-/* Test Report Elements */
-.test-table{
-  width: 100%;
-  border-spacing: 1px;
-  margin: -1px;
-  margin-top: 3px;
+
+/* Misc Test Report Elements */
+
+#tests ul{
+  margin-left: 0px;
 }
 
-.test-row,
-.test-row-title,
-.test-row-data{
-  font-size: 11px;
+.test-fn,
+.test-result,
+.test-should-be,
+.test-args{
   font-family: "Droid Mono", "Courier New", Courier, monospace;
-  letter-spacing: 0px;
   color: #ccc;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 2px 4px;
-  margin: 4px 0px;
-  width: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  margin: 2px 0px;
+  line-height: 1em;
 }
-.test-row:hover{
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.test-row-title{ width: 72px;}
-.test-row-data{ width: auto;}
-
-
 
 /*************************/
 /* Test Styling End      */
@@ -362,24 +287,36 @@ button:active {
 
 
 #titlebar {
-  margin: 0px 0px 32px 0px;
-  padding: 2px 0px 2px 0px;
+  margin: 0px;
+  margin-bottom: 32px;
+  padding: 4px 0px;  
   background: #1c1c1c;
   outline: solid 1px #444;
-  height: 92px;
+  max-height: 64px;
+  text-align: center;
 }
 
-#dash{
-  margin: 20px 0px 20px 0px;
-  padding: 0px;
+#dash-title{
+  color: #0fc;
+  font-size: 28px;
+  height: 30px;
+  margin: 1px 0px;
   background: none;
+  -webkit-transition: all 1.0s ease-in;
+}
+#dash-title:hover{
+  color: #8ff;
+  text-shadow: 0px 0px 8px #0fc;
+  -webkit-transition: all 0.5s ease-out;
 }
 
 #powered-by{
   font-size: 11px;
-  font-weight: 700;
+  height: 12px;
+  font-weight: 500;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  margin: 1px 0px;
   color: #666;
 }
 
@@ -389,8 +326,15 @@ button:active {
   text-align: center;
   letter-spacing: 1px;
   color: #444;
+  margin: 1px 0px;
+}
 
-  margin-top: -20px;
+#dash{
+  margin: 0px;
+  padding: 16px;
+  font-weight: 100;
+  background: #1c1c1c;
+  height: calc(100% - 128px);
 }
 
 #foot{
