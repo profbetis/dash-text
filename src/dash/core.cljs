@@ -20,7 +20,8 @@
 
 (defn upsert-view [state new-view]
   "Change the view of the given atom"
-  (swap! state #(assoc % :view new-view))
+  ;(swap! state #(assoc % :view new-view))
+  (swap! state assoc :view [new-view])
   ;(upsert-item state new-view :view)
   )
 
