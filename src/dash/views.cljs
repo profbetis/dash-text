@@ -5,6 +5,8 @@
             [dash.core :as core]
             ))
 
+(def view {:cur-view 0})
+
 (defn view-switcher [state]
   (reify om/IRender (render [_]
     (let [current-view (:view state)]
@@ -69,7 +71,7 @@
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
       (dom/h1 nil "Views View")
-      (let [view-to-render (:view state)]
+      (let [view-to-render (:cur-view view)]
         (cond
           (= view-to-render 0) (om/build view-a state)
           (= view-to-render 1) (om/build view-b state)
