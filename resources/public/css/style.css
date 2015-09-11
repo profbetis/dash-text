@@ -11,6 +11,12 @@
     Dark: #903
 */
 
+
+
+/****************/
+/* Main Styling */
+/****************/
+
 *{
   -webkit-transition: all 0.1s ease-out;
   outline-offset: -1px;
@@ -86,10 +92,26 @@ div{
   padding: 16px;
 }
 
+div .hidden-div{
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
 ::selection {
   color: #0fc;
   background: #999;
 }
+
+/********************/
+/* End Main Styling */
+/********************/
+
+
+
+/*****************/
+/* Input Styling */
+/*****************/
 
 input, button {
   color: #ccc;
@@ -157,6 +179,10 @@ button:active {
   transition-duration: 0.00s;
 }
 
+/*********************/
+/* End Input Styling */
+/*********************/
+
 
 
 /*************************/
@@ -215,77 +241,51 @@ button:active {
 .list-view div{
 }
 
-/*************************/
-/* Task List Styling End */
-/*************************/
+/*********************/
+/* End Input Styling */
+/*********************/
 
-.test-result,
-.test-should-be{
-  font-size: 14px;
+
+
+/***************/
+/* Tab Styling */
+/***************/
+
+.tab{
+  margin: 0px;
+  margin-top: 16px;
+  margin-bottom: -17px;
+  margin-left: -1px;
+  width: 128px;
+  background: #2c2c2c;
+  color: #888;
+  text-align: center;
+}
+.tab:hover{
   color: #ccc;
+  background: #333;
+  outline-color: #888;
 }
 
-.ns-views{
-  background: #1c1c1c;
-}
-.ns-view{
+.tab:first-child{ margin-left: 16px; }
+.tab:last-child{ margin-right: 16px; }
+
+.tab:disabled{
+  color: #0fc;
+  outline-color: #096;
   background: #222;
 }
+.tab:disabled:hover{ outline-color: #096;}
+
+/*******************/
+/* End Tab Styling */
+/*******************/
 
 
-/* Passing Tests */
 
-#tests .passed{
-  color: #0fc;
-  outline: solid 1px #097;
-  background: #202927;
-}
-#tests .passed .test-name{
-}
-#tests .passed .test-desc{
-}
-
-
-/* Failing Tests */
-
-#tests .failed{
-    color: #f07;
-    outline: double 4px #f07;
-    background: #2f2227;
-}
-#tests .failed .test-name{
-    font-weight: 500;
-    color: #f07;
-    background: rgba(255, 0, 119, 0.1);
-}
-#tests .failed .test-desc{
-    color: #f07;
-}
-
-
-/* Misc Test Report Elements */
-
-#tests ul{
-  margin-left: 0px;
-}
-
-.test-fn,
-.test-result,
-.test-should-be,
-.test-args{
-  font-family: "Droid Mono", "Courier New", Courier, monospace;
-  color: #ccc;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
-  margin: 2px 0px;
-  line-height: 1em;
-}
-
-/*************************/
-/* Test Styling End      */
-/*************************/
-
-
+/**************************/
+/* Begin Titlebar Styling */
+/**************************/
 
 #titlebar {
   margin: 0px;
