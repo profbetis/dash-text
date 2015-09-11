@@ -36,15 +36,16 @@
 (defn tab-view [cursor]
   (reify om/IRender (render [_]
     (let [cur-view (first (:current-tab cursor))
-          tabs (:tab-list cursor)]
+          tabs (:tab-list cursor)
+          num-tabs (count tabs)]
     (dom/div #js {:className "hidden-div"}
 
-        (for [i (range 0 (count tabs))]
-            (dom/button ;#js {style=(/ 100 (count tabs) + '%')}
+        (for [i (range 0 num-tabs)]
+            (dom/button
             (if (= cur-view i)
-              #js {:className "tab" :disabled true}
-              #js {:className "tab" :onClick #(om/update! (:current-tab cursor) [0] i)})
-            (str "Tab " i)))
+              #js {:className (str "tab numtabs-" num-tabs) :disabled true}
+              #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:current-tab cursor) [0] i)})
+            (str "Tab " (+ i 1))))
 
         (om/build (nth tabs cur-view) nil)
     )))))
@@ -57,7 +58,7 @@
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
       (dom/h1 nil "Tabs View")
-      (om/update! cursor [:tab-list] [view-a view-b view-c view-d])
+      (om/update! cursor [:tab-list] [view-a view-b view-c view-d view-a view-b view-c view-d])
       (if-not (= [] (:tab-list cursor))
         (om/build tab-view cursor)
         (om/build dash-loading cursor))

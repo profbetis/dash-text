@@ -256,15 +256,16 @@ button:active {
   margin-top: 16px;
   margin-bottom: -17px;
   margin-left: -1px;
-  width: 128px;
-  background: #2c2c2c;
-  color: #888;
+  outline: 1px solid #444;
+  background: #1c1c1c;
+  color: #666;
   text-align: center;
 }
+
 .tab:hover{
-  color: #ccc;
-  background: #333;
-  outline-color: #888;
+  color: #888;
+  background: #222;
+  outline-color: #666;
 }
 
 .tab:first-child{ margin-left: 16px; }
@@ -273,9 +274,19 @@ button:active {
 .tab:disabled{
   color: #0fc;
   outline-color: #096;
-  background: #222;
+  background: #2c2c2c;
 }
 .tab:disabled:hover{ outline-color: #096;}
+
+/* Needs more precise and better calculated numbers */
+.numtabs-1 { width: calc(100% - 32px); }
+.numtabs-2 { width: calc(50% - 15.5px); }
+.numtabs-3 { width: calc(33.333% - 10px); }
+.numtabs-4 { width: calc(25% - 7.25px); }
+.numtabs-5 { width: calc(20% - 5.5px); }
+.numtabs-6 { width: calc(16.666% - 4.5px); }
+.numtabs-7 { width: calc(14.286% - 3.666px); }
+.numtabs-8 { width: calc(12.5% - 3.125px); }
 
 /*******************/
 /* End Tab Styling */
