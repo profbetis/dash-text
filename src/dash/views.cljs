@@ -36,11 +36,7 @@
 (defn tab-view [cursor]
   (reify om/IRender (render [_]
     (let [cur-view (first (:current-tab cursor))
-          tabs (:tab-list cursor)
-         ]
-    ; Note: Need to have a style for invisible divs.
-    ; Om functions only work on one root element so it must be a div to contain more elements.
-    ; Alternatively, figure out how to work with seq or similar to not need a parent div.
+          tabs (:tab-list cursor)]
     (dom/div #js {:className "hidden-div"}
 
         (for [i (range 0 (count tabs))]
@@ -51,24 +47,6 @@
             (str "Tab " i)))
 
         (om/build (nth tabs cur-view) nil)
-
-        ; (dom/button
-        ;   (if (= current-view 0)
-        ;     #js {:className "view-switcher" :disabled true}
-        ;     #js {:className "view-switcher" :onClick #(om/update! cursor [0] 0)})
-        ;   (str "View A"))
-    
-        ; (dom/button
-        ;   (if (= current-view 1)
-        ;     #js {:className "view-switcher" :disabled true}
-        ;     #js {:className "view-switcher" :onClick #(om/update! cursor [0] 1)})
-        ;   (str "View B"))
-
-        ; (dom/button
-        ;   (if (= current-view 2)
-        ;     #js {:className "view-switcher" :disabled true}
-        ;     #js {:className "view-switcher" :onClick #(om/update! cursor [0] 2)})
-        ;   (str "View C"))
     )))))
 
 (defn dash-loading []
