@@ -84,6 +84,21 @@ div{
   margin: 16px;
   padding: 16px;
 }
+div:hover{ outline-color: #555; }
+
+/*div,
+div>div>div,
+div>div>div>div>div{ background: #1c1c1c; }
+
+div>div,
+div>div>div>div,
+div>div>div>div>div>div{ background: #222; }*/
+
+div{ background: #1a1a1a; }
+div>div{ background: #202020; }
+div>div>div{ background: #242424; }
+div>div>div>div{ background: #2a2a2a; }
+div>div>div>div>div{ background: #303030; }
 
 ::selection {
   color: #0fc;
@@ -290,7 +305,7 @@ button:active {
   margin: 0px;
   margin-bottom: 32px;
   padding: 4px 0px;  
-  background: #1c1c1c;
+  background: #1a1a1a;
   outline: solid 1px #444;
   max-height: 64px;
   text-align: center;
@@ -333,7 +348,6 @@ button:active {
   margin: 0px;
   padding: 16px;
   font-weight: 100;
-  background: #1c1c1c;
   height: calc(100% - 128px);
 }
 
