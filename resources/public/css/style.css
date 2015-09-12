@@ -363,16 +363,12 @@ button:active {
   margin: 0px;
   padding: 32px;
   font-weight: 100;
-<<<<<<< HEAD
-  height: calc(100% - 128px);
-=======
   padding: 0px;
   outline: none;
   background: #1c1c1c;
 }
 #dash>div{
   margin: 0px;
->>>>>>> dev-tabs
 }
 
 #foot{
