@@ -6,12 +6,15 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom {:reload-count 0 :view [0 "A"]}))
+(defonce app-state (atom {:reload-count 0 
+						  :tab-list []
+						  :current-tab [0]
+						  }))
 
 (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
 
 (om/root
- dash-views/views-view
+ dash-views/tabs-view
  app-state
  {:target (. js/document (getElementById "dash"))})
 

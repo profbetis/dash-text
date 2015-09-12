@@ -11,6 +11,12 @@
     Dark: #903
 */
 
+
+
+/****************/
+/* Main Styling */
+/****************/
+
 *{
   -webkit-transition: all 0.1s ease-out;
   outline-offset: -1px;
@@ -82,8 +88,14 @@ a {
 
 div{
   outline: solid 1px #444;
-  margin: 16px;
-  padding: 16px;
+  margin: 32px;
+  padding: 32px;
+}
+
+div .hidden-div{
+  margin: 0px;
+  padding: 0px;
+  outline: none;
 }
 div:hover{ outline-color: #555; }
 
@@ -105,6 +117,16 @@ div>div>div>div>div{ background: #303030; }
   color: #0fc;
   background: #999;
 }
+
+/********************/
+/* End Main Styling */
+/********************/
+
+
+
+/*****************/
+/* Input Styling */
+/*****************/
 
 input, button {
   color: #ccc;
@@ -172,6 +194,10 @@ button:active {
   transition-duration: 0.00s;
 }
 
+/*********************/
+/* End Input Styling */
+/*********************/
+
 
 
 /*************************/
@@ -230,77 +256,65 @@ button:active {
 .list-view div{
 }
 
-/*************************/
-/* Task List Styling End */
-/*************************/
+/*********************/
+/* End Input Styling */
+/*********************/
 
-.test-result,
-.test-should-be{
-  font-size: 14px;
-  color: #ccc;
+
+
+/***************/
+/* Tab Styling */
+/***************/
+
+.tab-bar{
+  margin: 0px -32px;
+  padding: 0px;
+  outline: 0px;
 }
-
-.ns-views{
+.tab{
+  margin: -32px 0px 16px 0px;
+  outline: 1px solid #444;
+  outline-offset: -1px;
   background: #1c1c1c;
+  color: #666;
+  text-align: center;
 }
-.ns-view{
+
+.tab:hover{
+  color: #888;
   background: #222;
+  outline-color: #666;
 }
 
+.tab:first-child{  }
+.tab:last-child{  }
 
-/* Passing Tests */
-
-#tests .passed{
+.tab:disabled{
   color: #0fc;
-  outline: solid 1px #097;
-  background: #202927;
+  outline: 4px double #096;
+  outline-offset: -5px;
+  background: #2c2c2c;
 }
-#tests .passed .test-name{
-}
-#tests .passed .test-desc{
-}
+.tab:disabled:hover{ outline: 4px double #097; }
+
+.numtabs-1 { width: 100%; }
+.numtabs-2 { width: 50%; }
+.numtabs-3 { width: 33.3333%; }
+.numtabs-4 { width: 25%; }
+.numtabs-5 { width: 20%; }
+.numtabs-6 { width: 16.6666%; }
+.numtabs-7 { width: 14.2858%; }
+.numtabs-8 { width: 12.5% }
+
+/*******************/
+/* End Tab Styling */
+/*******************/
 
 
-/* Failing Tests */
 
-#tests .failed{
-    color: #f07;
-    outline: double 4px #f07;
-    background: #2f2227;
-}
-#tests .failed .test-name{
-    font-weight: 500;
-    color: #f07;
-    background: rgba(255, 0, 119, 0.1);
-}
-#tests .failed .test-desc{
-    color: #f07;
-}
-
-
-/* Misc Test Report Elements */
-
-#tests ul{
-  margin-left: 0px;
-}
-
-.test-fn,
-.test-result,
-.test-should-be,
-.test-args{
-  font-family: "Droid Mono", "Courier New", Courier, monospace;
-  color: #ccc;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
-  margin: 2px 0px;
-  line-height: 1em;
-}
-
-/*************************/
-/* Test Styling End      */
-/*************************/
-
-
+/**************************/
+/* Begin Titlebar Styling */
+/**************************/
 
 #titlebar {
   margin: 0px;
@@ -347,9 +361,18 @@ button:active {
 
 #dash{
   margin: 0px;
-  padding: 16px;
+  padding: 32px;
   font-weight: 100;
+<<<<<<< HEAD
   height: calc(100% - 128px);
+=======
+  padding: 0px;
+  outline: none;
+  background: #1c1c1c;
+}
+#dash>div{
+  margin: 0px;
+>>>>>>> dev-tabs
 }
 
 #foot{

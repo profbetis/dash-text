@@ -5,68 +5,61 @@
             [dash.core :as core]
             ))
 
-(defn view-switcher [cursor]
-  (reify om/IRender (render [_]
-    (let [current-view (first cursor)]
-    ; Note: Need to have a style for invisible divs.
-    ; Om functions only work on one root element so it must be a div to contain more elements.
-    ; Alternatively, figure out how to work with seq or similar to not need a parent div.
-    (dom/div nil
-        (dom/button
-          (if (= current-view 0)
-            #js {:className "view-switcher" :disabled true}
-            #js {:className "view-switcher" :onClick #(om/update! cursor [0] 0)})
-          (str "View A"))
-    
-        (dom/button
-          (if (= current-view 1)
-            #js {:className "view-switcher" :disabled true}
-            #js {:className "view-switcher" :onClick #(om/update! cursor [0] 1)})
-          (str "View B"))
-
-        (dom/button
-          (if (= current-view 2)
-            #js {:className "view-switcher" :disabled true}
-            #js {:className "view-switcher" :onClick #(om/update! cursor [0] 2)})
-          (str "View C"))
-    )))))
-
 (defn view-a [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View A")
-      (dom/h4 nil (str "(Also known in the atom as View " (str (get-in cursor [:view 0])) ")"))
       (dom/p nil "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-      (om/build view-switcher (:view cursor))
       ))))
 
 (defn view-b [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View B")
-      (dom/h4 nil (str "(Also known in the atom as View " (str (get-in cursor [:view 0])) ")"))
       (dom/p nil "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
-      (om/build view-switcher (:view cursor))
       ))))
 
 (defn view-c [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View C")
-      (dom/h4 nil (str "(Also known in the atom as View " (str (get-in cursor [:view 0])) ")"))
       (dom/p nil "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
-      (om/build view-switcher (:view cursor))
       ))))
 
-(defn views-view [cursor owner] ;META
+(defn view-d [cursor]
+  (reify om/IRender (render [_]
+    (dom/div #js {:className "hidden-div"}
+      (dom/h1 nil "This is View D")
+      (dom/p nil "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+      ))))
+
+(defn tab-view [cursor]
+  (reify om/IRender (render [_]
+    (let [cur-view (first (:current-tab cursor))
+          tabs (:tab-list cursor)
+          num-tabs (count tabs)]
+    (dom/div nil
+        (dom/div #js {:className "tab-bar"}
+          (for [i (range 0 num-tabs)]
+            (dom/button
+            (if (= cur-view i)
+              #js {:className (str "tab numtabs-" num-tabs) :disabled true}
+              #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:current-tab cursor) [0] i)})
+            (str "Tab " (+ i 1)))))
+
+        (om/build (nth tabs cur-view) nil)
+    )))))
+
+(defn dash-loading []
+  (reify om/IRender (render [_]
+  (dom/div #js {:className "dash-loading"} "Loading - Please Wait!"))))
+
+(defn tabs-view [cursor owner] ;META
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
-      (dom/h1 nil "Views View")
-      (let [current-view (get-in cursor [:view 0])]
-        (cond
-          (= current-view 0) (om/build view-a cursor)
-          (= current-view 1) (om/build view-b cursor)
-          (= current-view 2) (om/build view-c cursor)
-          :else (dom/h3 nil "No View to Render"))
-        )
+      (dom/h1 nil "Tabs View")
+      (om/update! cursor [:tab-list] [view-a view-b view-c view-d view-a view-b view-c view-d])
+      (if-not (= [] (:tab-list cursor))
+        (om/build tab-view cursor)
+        (om/build dash-loading cursor))
       ))))
