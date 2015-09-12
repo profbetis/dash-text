@@ -27,7 +27,7 @@ html{
   background-color: #222;
   color: #ccc;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: 1px;
@@ -130,7 +130,7 @@ div>div>div>div>div>div{ background: #222; }*/
 
 input, button {
   color: #ccc;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 300;
