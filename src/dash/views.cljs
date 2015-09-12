@@ -7,28 +7,28 @@
 
 (defn view-a [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View A")
       (dom/p nil "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
       ))))
 
 (defn view-b [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View B")
       (dom/p nil "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
       ))))
 
 (defn view-c [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View C")
       (dom/p nil "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
       ))))
 
 (defn view-d [cursor]
   (reify om/IRender (render [_]
-    (dom/div nil
+    (dom/div #js {:className "hidden-div"}
       (dom/h1 nil "This is View D")
       (dom/p nil "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
       ))))
@@ -38,14 +38,14 @@
     (let [cur-view (first (:current-tab cursor))
           tabs (:tab-list cursor)
           num-tabs (count tabs)]
-    (dom/div #js {:className "hidden-div"}
-
-        (for [i (range 0 num-tabs)]
+    (dom/div nil
+        (dom/div #js {:className "tab-bar"}
+          (for [i (range 0 num-tabs)]
             (dom/button
             (if (= cur-view i)
               #js {:className (str "tab numtabs-" num-tabs) :disabled true}
               #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:current-tab cursor) [0] i)})
-            (str "Tab " (+ i 1))))
+            (str "Tab " (+ i 1)))))
 
         (om/build (nth tabs cur-view) nil)
     )))))
