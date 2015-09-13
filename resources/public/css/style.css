@@ -86,16 +86,19 @@ h4 {
 
 p {
   font-weight: 300;
+  text-align: left;
 }
 
 a {
   color: #f0c;
 }
 
-div{
+div,
+canvas{
   outline: solid 1px #444;
   margin: 16px;
   padding: 16px;
+  text-align: center;
 }
 
 div:hover{ outline-color: #505050; }
@@ -128,6 +131,11 @@ div .hidden-div{
   margin: 0px;
   padding: 0px;
   outline: none;
+}
+
+canvas{
+  background: #101010;
+  padding: 0px;
 }
 
 ::selection {
