@@ -1,6 +1,5 @@
 (ns dash.util
-  (:require [clojure.string :as string]
-            [cljs.reader :as reader]))
+  (:require [clojure.string :as string]))
 
 (defn name-as-id [some-name]
   "Cleanse a named thing into a usable string id."
@@ -19,10 +18,19 @@
         some-object))))
 
 (defn abbreviate [some-name]
-  "Makes a two-letter uppercase string out of a name"
+  "Takes the first letter of each word and makes a new word out of it"
   (let [words (string/split (string/trim (string/upper-case some-name)) #"\s+")]
     (str
       (ffirst words)
       (if (= (alength (to-array words)) 1)
         nil
         (first (last words))))))
+
+(defn lerp [a b x]
+  "Linear interpolation between two values"
+  (+ a (* x (- b a))))
+
+(defn remap [aa ab ba bb value]
+  "Remaps a number in one range to another range"
+   (lerp ba bb (/ (- v aa) (- ab aa)))
+)

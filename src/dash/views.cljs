@@ -14,13 +14,15 @@
   (reify om/IRender (render [_]
     (let []
     (dom/div nil
+      (dom/h1 nil "Canvas Graph")
+      (canvas/start-sketch cursor)
       (dom/canvas #js {:id "canvas-test" :className "canvas-graph" :width 640 :height 256})
       (dom/h4 nil "If this viewport is black and blank, reload the page!")
     )))))
 
-(defn root-view [cursor owner] ;META
+(defn root-view [cursor owner]
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
-      (dom/h1 nil "Canvas View")
+      (dom/h3 nil "Test Container")
       (om/build canvas-view cursor)
       ))))
