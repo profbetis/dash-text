@@ -50,16 +50,26 @@
         (om/build (nth tabs cur-view) nil)
     )))))
 
+(defn canvas-view [cursor]
+  (reify om/IRender (render [_]
+    (let []
+    (dom/div nil 
+      (dom/canvas nil #js{:script "
+        var c = document.getElementById('myCanvas');
+        var ctx = c.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(95,50,40,0,2*Math.PI);
+        ctx.stroke();
+        "})
+    )))))
+
 (defn dash-loading []
   (reify om/IRender (render [_]
   (dom/div #js {:className "dash-loading"} "Loading - Please Wait!"))))
 
-(defn tabs-view [cursor owner] ;META
+(defn root-view [cursor owner] ;META
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
-      (dom/h1 nil "Tabs View")
-      (om/update! cursor [:tab-list] [view-a view-b view-c view-d view-a view-b view-c view-d])
-      (if-not (= [] (:tab-list cursor))
-        (om/build tab-view cursor)
-        (om/build dash-loading cursor))
+      (dom/h1 nil "Canvas View")
+      (om/build canvas-view cursor)
       ))))
