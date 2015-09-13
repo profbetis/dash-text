@@ -7,28 +7,28 @@
 
 (defn view-a [cursor]
   (reify om/IRender (render [_]
-    (dom/div #js {:className "hidden-div"}
+    (dom/div #js {:className "nomargin-div"}
       (dom/h1 nil "This is View A")
       (dom/p nil "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
       ))))
 
 (defn view-b [cursor]
   (reify om/IRender (render [_]
-    (dom/div #js {:className "hidden-div"}
+    (dom/div #js {:className "nomargin-div"}
       (dom/h1 nil "This is View B")
       (dom/p nil "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
       ))))
 
 (defn view-c [cursor]
   (reify om/IRender (render [_]
-    (dom/div #js {:className "hidden-div"}
+    (dom/div #js {:className "nomargin-div"}
       (dom/h1 nil "This is View C")
       (dom/p nil "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
       ))))
 
 (defn view-d [cursor]
   (reify om/IRender (render [_]
-    (dom/div #js {:className "hidden-div"}
+    (dom/div #js {:className "nomargin-div"}
       (dom/h1 nil "This is View D")
       (dom/p nil "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
       ))))
@@ -38,8 +38,8 @@
     (let [cur-view (first (:current-tab cursor))
           tabs (:tab-list cursor)
           num-tabs (count tabs)]
-    (dom/div nil
-        (dom/div #js {:className "tab-bar"}
+    (dom/div #js {:className "tab-view"}
+        (dom/div #js {:className "tab-bar hidden-div"}
           (for [i (range 0 num-tabs)]
             (dom/button
             (if (= cur-view i)

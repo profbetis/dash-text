@@ -13,12 +13,18 @@
 
 
 
+/* Imports */
+@import "tests.css";
+@import "tabs.css";
+
+
+
 /****************/
 /* Main Styling */
 /****************/
 
 *{
-  -webkit-transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease;
   outline-offset: -1px;
 }
 
@@ -88,10 +94,21 @@ a {
 
 div{
   outline: solid 1px #444;
-  margin: 32px;
-  padding: 32px;
+  margin: 16px;
+  padding: 16px;
 }
-div:hover{ outline-color: #555; }
+
+div:hover{ outline-color: #505050; }
+
+div .hidden-div{
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+div .nomargin-div{ margin: 0px; }
+div .nopadding-div{ padding: 0px; }
+
+div .hidden-div>div{ background: none; }
 
 /*div,
 div>div>div,
@@ -182,7 +199,7 @@ button{
   background: #222;
   margin: 4px 4px;
 
-  transition-duration: 0.2s;
+  transition-duration: 0.1s;
 }
 
 button:hover, input:focus{
@@ -212,118 +229,6 @@ button:active {
 
 
 
-/*************************/
-/* Task List Styling     */
-/*************************/
-
-#lists-view{
-  padding: 32px;
-  background: #1c1c1c;
-  outline: solid 1px #444;
-}
-
-#lists-view .task-completed{
-  color: #666;
-  font-style: italic;
-  text-decoration: line-through;
-}
-
-#lists-view .list-title{
-  background: #333;
-  outline: solid 1px #097;
-  padding: 4px 8px;
-}
-
-#lists-view li{
-  color: #aaa;
-  font-size: 14px;
-  background: #2c2c2c;
-  border-bottom: solid 1px #444;
-  padding: 0px 8px;
-  display: flex;
-}
-#lists-view li:hover{
-  background: #333;
-  outline: solid 1px #097;
-}
-
-#lists-view li div{
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-#lists-view li .info-date{
-  color: #888;
-  font-size: 10px;
-  text-align: right;
-  margin-left: 16px;
-}
-#lists-view li .info-timedue{
-  color: #888;
-  font-size: 10px;
-  text-align: right;
-  margin-left: 16px;
-}
-
-.list-view div{
-}
-
-/*********************/
-/* End Input Styling */
-/*********************/
-
-
-
-/***************/
-/* Tab Styling */
-/***************/
-
-.tab-bar{
-  margin: 0px -32px;
-  padding: 0px;
-  outline: 0px;
-}
-.tab{
-  margin: -32px 0px 16px 0px;
-  outline: 1px solid #444;
-  outline-offset: -1px;
-  background: #1c1c1c;
-  color: #666;
-  text-align: center;
-}
-
-.tab:hover{
-  color: #888;
-  background: #222;
-  outline-color: #666;
-}
-
-.tab:first-child{  }
-.tab:last-child{  }
-
-.tab:disabled{
-  color: #0fc;
-  outline: 4px double #096;
-  outline-offset: -5px;
-  background: #2c2c2c;
-}
-.tab:disabled:hover{ outline: 4px double #097; }
-
-.numtabs-1 { width: 100%; }
-.numtabs-2 { width: 50%; }
-.numtabs-3 { width: 33.3333%; }
-.numtabs-4 { width: 25%; }
-.numtabs-5 { width: 20%; }
-.numtabs-6 { width: 16.6666%; }
-.numtabs-7 { width: 14.2858%; }
-.numtabs-8 { width: 12.5% }
-
-/*******************/
-/* End Tab Styling */
-/*******************/
-
-
-
 /**************************/
 /* Titlebar Styling */
 /**************************/
@@ -333,7 +238,6 @@ button:active {
   margin-bottom: 32px;
   padding: 5px 0px;  
   background: #1a1a1a;
-  outline: solid 1px #444;
   max-height: 64px;
   text-align: center;
 }
