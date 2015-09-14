@@ -23,46 +23,64 @@
 		  num-entries (count data)
 		  max-value (apply max data)
 		  min-value (apply min data)
+		  largest-val (apply max (mapv Math.abs data))
 		  value-range (- max-value min-value)
 		  range-mid (+ (* value-range 0.5) min-value)
-		  view-top (+ range-mid (* value-range 0.666))
-		  view-bottom (- range-mid (* value-range 0.666))
-		  num-to-px #(q/map-range % view-top view-bottom 0 h)
+		  data-squash 0.2
+		  view-top (+ range-mid (* value-range (+ 0.5 data-squash)))
+		  view-bottom (- range-mid (* value-range (+ 0.5 data-squash)))
+		  num-to-px #(q/map-range % view-top view-bottom 16 (- h 16))
 		  origin (num-to-px 0)
 		 ]
 
+		; Top bar
+		(q/fill 42)
+		(q/stroke 0 0)
+		(q/rect 0 0 w 16)
+
 		(q/stroke 0 255 204)
 
+		; Data entries
 		(doseq [i (range 0 num-entries)]
 			(let [
 				  value (nth data i)
-				  next-value (if (< (- i 1) num-entries)
+				  next-value (if (< (+ i 1) num-entries)
 					  	(nth data (+ i 1))
 					  	value)
 				  x (/ (* (+ 1 i) w) (+ num-entries 1))
 				  y (num-to-px value)
 				  nx (/ (* (+ 2 i) w) (+ num-entries 1))
-				  ny (if (< (- i 1) num-entries)
+				  ny (if (< (+ i 1) num-entries)
 					  	(num-to-px next-value)
 					  	y)
+				  amplitude (/ (Math.abs value) largest-val)
+				  change (util/normalize (* -1 largest-val) largest-val (- next-value value))
 				 ]
 
-				(q/fill 0 255 204 (* 255 (/ (q/abs value) (q/abs max-value))))
+				; Circles at data points
+				(q/fill 0 255 204 (* 255 (/ (q/abs value) largest-val)))
 				(q/stroke 0 0)
 				(q/ellipse x y 6 6)
 				(q/stroke 0 255 204 64)
 
+				; Interval Lines
 				(q/line x origin x y)
-				(q/stroke 255 8)
-				(q/line x 0 x h)
+				(q/stroke 255 16)
+				(q/line x 16 x h)
 				(q/stroke 0 255 204 64)
+
+				; Text at data point
 
 				(if (>= value 0)
 					(q/text-num value x (- y 12))
 					(q/text-num value x (+ y 12)))
 
-				(q/fill 0 255 204 (/ (* 255 (q/abs next-value)) value-range))
-				(if (< (- i 1) num-entries)
+				; Graph fill
+				(q/fill (util/lerp 255 0 change)
+						(util/lerp 0 255 change)
+						204 
+						64)
+				(if (< (+ i 1) num-entries)
 					(q/quad x origin  x y  nx ny  nx origin)
 					nil)
 			))
@@ -94,7 +112,7 @@
   			globals {:width w :height h}
          ]
 
-         (q/background 48)
+         (q/background 28)
          (graph-test globals)
         ;(circle-splat globals)
 
