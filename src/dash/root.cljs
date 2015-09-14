@@ -7,8 +7,11 @@
 (enable-console-print!)
 
 (defonce app-state (atom {:reload-count 0 
-						  :tab-list []
-						  :current-tab [0]
+						  :root-tab-list []
+						  :root-cur-tab [0]
+						  :tab-view-tab-list []
+						  :tab-view-cur-tab [0]
+						  :sample-text "Hello world!"
 						  }))
 
 (swap! app-state #(assoc % :reload-count (inc (:reload-count %))))
