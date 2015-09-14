@@ -37,15 +37,17 @@
   (reify om/IRender (render [_]
     (let [cur-view (first (:current-tab cursor))
           tabs (:tab-list cursor)
+          names ["View A" "View B" "View C" "View D" "View A" "View B" "View C" "View D"]
           num-tabs (count tabs)]
     (dom/div nil
         (dom/div #js {:className "tab-bar"}
           (for [i (range 0 num-tabs)]
-            (dom/button
-            (if (= cur-view i)
-              #js {:className (str "tab numtabs-" num-tabs) :disabled true}
-              #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:current-tab cursor) [0] i)})
-            (str "Tab " (+ i 1)))))
+            (let [tab-name (nth names i)]
+              (dom/button
+                (if (= cur-view i)
+                  #js {:className (str "tab numtabs-" num-tabs) :disabled true}
+                  #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:current-tab cursor) [0] i)})
+                tab-name))))
 
         (om/build (nth tabs cur-view) nil)
     )))))
