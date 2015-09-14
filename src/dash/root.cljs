@@ -7,10 +7,8 @@
 (enable-console-print!)
 
 (defonce app-state (atom {:reload-count 0 
-						  :root-tab-list []
-						  :root-cur-tab [0]
-						  :tab-view-tab-list []
-						  :tab-view-cur-tab [0]
+						  :test-tab-list []
+						  :test-cur-tab [0]
 						  :sample-text "Hello world!"
 						  }))
 

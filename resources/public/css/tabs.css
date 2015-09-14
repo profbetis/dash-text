@@ -2,12 +2,16 @@
 /* Tab Styling */
 /***************/
 
-.tab-bar{  }
+.tab-bar{
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
 .tab-bar:hover{  }
 
 .tab{
   margin: 0px;
-  outline: 1px solid #222;
+  outline: 1px solid #444;
   outline-offset: -1px;
   background: #202020;
   color: #666;

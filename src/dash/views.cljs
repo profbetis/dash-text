@@ -32,8 +32,8 @@
 
 (defn tab-view [cursor]
   (reify om/IRender (render [_]
-    (let [cur-view (first (:root-cur-tab cursor))
-          tabs (:root-tab-list cursor)
+    (let [cur-view (first (:test-cur-tab cursor))
+          tabs (:test-tab-list cursor)
           names ["View A" "View B" "View C" "View D"]
           num-tabs (count tabs)]
     (dom/div nil
@@ -43,10 +43,10 @@
               (dom/button
                 (if (= cur-view i)
                   #js {:className (str "tab numtabs-" num-tabs) :disabled true}
-                  #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:root-cur-tab cursor) [0] i)})
+                  #js {:className (str "tab numtabs-" num-tabs) :onClick #(om/update! (:test-cur-tab cursor) [0] i)})
                 tab-name))))
 
-        (om/build (nth tabs cur-view) nil)
+        (om/build (nth tabs cur-view) cursor)
     )))))
 
 (defn canvas-test-view [cursor]
@@ -74,15 +74,16 @@
     (let []
     (dom/div nil
       (dom/h1 nil "Tab View")
-      (dom/p nil "The fact that you're seeing this means you're seeing this through a real tab-view (but here are some more)!")
+      (om/build tab-view cursor)
       )))))
 
 (defn root-view [cursor owner]
   (reify om/IRender (render [_]
     (dom/div #js {:id "test-container"}
+      (om/update! cursor [:test-tab-list] [view-a view-b view-c view-d])
+
       (dom/h3 nil "Test Container")
-      (om/update! cursor [:root-tab-list] [text-test-view 
-                                      canvas-test-view 
-                                      tab-test-view])
-      (om/build tab-view cursor)
+      (om/build text-test-view cursor)
+      (om/build canvas-test-view cursor)
+      (om/build tab-test-view cursor)
       ))))
